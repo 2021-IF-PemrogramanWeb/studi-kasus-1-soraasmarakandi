@@ -1,0 +1,10 @@
+.head-center {
+    text-align: center;
+}
+
+.logo {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    width: 10%;
+}
