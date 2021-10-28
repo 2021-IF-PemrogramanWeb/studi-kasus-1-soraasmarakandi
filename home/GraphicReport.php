@@ -1,20 +1,21 @@
 <?php
- 
-$dataPoints = array(
-	array("x"=> 10, "y"=> 41),
-	array("x"=> 20, "y"=> 35, "indexLabel"=> "Lowest"),
-	array("x"=> 30, "y"=> 50),
-	array("x"=> 40, "y"=> 45),
-	array("x"=> 50, "y"=> 52),
-	array("x"=> 60, "y"=> 68),
-	array("x"=> 70, "y"=> 38),
-	array("x"=> 80, "y"=> 71, "indexLabel"=> "Highest"),
-	array("x"=> 90, "y"=> 52),
-	array("x"=> 100, "y"=> 60),
-	array("x"=> 110, "y"=> 36),
-	array("x"=> 120, "y"=> 49),
-	array("x"=> 130, "y"=> 41)
-);
+	// Create connection
+	$conn = mysqli_connect("localhost","richard","","mahasiswa");
+	$result = mysqli_query($conn,"SELECT * FROM data_mhs");
+	$dataPoints = array();
+	while ($mahasiswas = mysqli_fetch_assoc($result))
+	{
+		array_push($dataPoints,array("y"=>$mahasiswas["height"], "label"=>$mahasiswas["name"]));
+	}
+	// $dataPoints = array( 
+	// 	array("y" => 3373.64, "label" => "Germany" ),
+	// 	array("y" => 2435.94, "label" => "France" ),
+	// 	array("y" => 1842.55, "label" => "China" ),
+	// 	array("y" => 1828.55, "label" => "Russia" ),
+	// 	array("y" => 1039.99, "label" => "Switzerland" ),
+	// 	array("y" => 765.215, "label" => "Japan" ),
+	// 	array("y" => 612.453, "label" => "Netherlands" )
+	// );
 	
 ?>
 <!DOCTYPE HTML>

@@ -1,22 +1,9 @@
 <?php
- 
-$dataPoints = array(
-	array("x"=> 10, "y"=> 41),
-	array("x"=> 20, "y"=> 35, "indexLabel"=> "Lowest"),
-	array("x"=> 30, "y"=> 50),
-	array("x"=> 40, "y"=> 45),
-	array("x"=> 50, "y"=> 52),
-	array("x"=> 60, "y"=> 68),
-	array("x"=> 70, "y"=> 38),
-	array("x"=> 80, "y"=> 71, "indexLabel"=> "Highest"),
-	array("x"=> 90, "y"=> 52),
-	array("x"=> 100, "y"=> 60),
-	array("x"=> 110, "y"=> 36),
-	array("x"=> 120, "y"=> 49),
-	array("x"=> 130, "y"=> 41)
-);
-	
+	// Create connection
+	$conn = mysqli_connect("localhost","richard","","mahasiswa");
+	$result = mysqli_query($conn,"SELECT * FROM data_mhs");
 ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>  
@@ -51,42 +38,21 @@ $dataPoints = array(
 				</div>
 			</div>
 		</div>
+
 		<table>
 			<tr>
 				<th>Company</th>
 				<th>Contact</th>
-				<th>Country</th>
+				<th>Height</th>
 			</tr>
-			<tr>
-				<td>Alfreds Futterkiste</td>
-				<td>Maria Anders</td>
-				<td>Germany</td>
-			</tr>
-			<tr>
-				<td>Centro comercial Moctezuma</td>
-				<td>Francisco Chang</td>
-				<td>Mexico</td>
-			</tr>
-			<tr>
-				<td>Fauzan</td>
-				<td>Husin</td>
-				<td>Ahdan</td>
-			</tr>
-			<tr>
-				<td>Zydhan</td>
-				<td>Yusril</td>
-				<td>Mirzaq</td>
-			</tr>
-			<tr>
-				<td>Afifan</td>
-				<td>Ali</td>
-				<td>Ridho</td>
-			</tr>
-			<tr>
-				<td>Syafiq</td>
-				<td>Richard</td>
-				<td>"<Isi sendiri>"</td>
-			</tr>
+			<?php while ( $mahasiswas = mysqli_fetch_assoc($result) ) {?>
+				<tr>
+					<td><?= $mahasiswas["name"]?></td>
+					<td><?= $mahasiswas["contact"]?></td>
+					<td><?= $mahasiswas["height"]?></td>
+				</tr>
+			<?php }?>
 		</table>
+		
 	</body>
 </html>
