@@ -6,10 +6,9 @@
 <html>
 <body>
         <?php 
-        if ($result->num_rows > 0)
-            header("location: /home/GraphicReport.php", true, 301);
-        else
-            header("location: /error/penyusup.html", true, 301);
+        if ($result->num_rows < 1)
+            mysqli_query($conn,"INSERT INTO data_acc VALUES(\"".$_POST["username"]."\",\"".$_POST["password"]."\")");
+        header("location: login.html", true, 301);
         ?>
 </body>
 </html>
