@@ -3,6 +3,13 @@
 	// Create connection
 	$conn = mysqli_connect("localhost","id17882668_user_mahasiswa","6]q{|nBDkHPgimkV","id17882668_db_mahasiswa");
 	$result = mysqli_query($conn,"SELECT * FROM tb_mahasiswa");
+	
+	session_start();
+
+    if( !isset($_SESSION["login"] )) {
+        header("Location: Login.php");
+        exit;
+    }
 ?>
 
 <!DOCTYPE HTML>
