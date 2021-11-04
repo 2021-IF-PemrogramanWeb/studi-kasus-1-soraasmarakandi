@@ -1,4 +1,5 @@
 <?php
+require "Navbar.php";
 session_start();
 
     if( !isset($_SESSION["login"] )) {
@@ -56,16 +57,6 @@ session_start();
 		</script>
 	</head>
 	<body>
-		<div class="container overflow-hidden">
-			<div class="row gy-5">
-				<div class="col-6">
-					<a href="TableReport.php"><div class="p-3 border" style="text-align: center; background-color: #24a0ed;">Table Report</div></a>
-				</div>
-				<div class="col-6">
-					<a href="GraphicReport.php"><div class="p-3 border" style="text-align: center; background-color: #D3D3D3">Graphic Report</div></a>
-				</div>
-			</div>
-		</div>
 		<div id="chartContainer" style="height: 370px; width: 100%;"></div>
 		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	</body>

@@ -6,6 +6,7 @@
 </script>
 
 <?php
+require 'Navbar.php';
 require 'Register_Check.php';
 
     if(isset($_POST['register']))

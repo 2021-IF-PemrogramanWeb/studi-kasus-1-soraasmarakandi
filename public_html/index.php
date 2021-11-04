@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'Navbar.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>

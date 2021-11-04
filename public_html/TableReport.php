@@ -1,4 +1,5 @@
 <?php
+    require 'Navbar.php';
 	// Create connection
 	$conn = mysqli_connect("localhost","id17882668_user_mahasiswa","6]q{|nBDkHPgimkV","id17882668_db_mahasiswa");
 	$result = mysqli_query($conn,"SELECT * FROM tb_mahasiswa");
@@ -28,16 +29,6 @@
 		</style>
 	</head>
 	<body>
-		<div class="container overflow-hidden">
-			<div class="row gy-5">
-				<div class="col-6">
-					<a href="TableReport.php"><div class="p-3 border" style="text-align: center; background-color: #D3D3D3;">Table Report</div></a>
-				</div>
-				<div class="col-6">
-					<a href="GraphicReport.php"><div class="p-3 border" style="text-align: center; background-color: #24a0ed;">Graphic Report</div></a>
-				</div>
-			</div>
-		</div>
 
 		<table>
 			<tr>

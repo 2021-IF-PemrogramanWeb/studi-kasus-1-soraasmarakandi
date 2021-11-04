@@ -6,6 +6,7 @@
 </script>
 
 <?php
+require 'Navbar.php';
 // require 'Login_Check.php';
 
 //     global $wrong_password;
@@ -21,7 +22,7 @@
 session_start();
 
 if( isset($_SESSION["login"] )) {
-    header("Location: GraphicReport.php");
+    header("Location: Home.php");
     exit;
 }
 
@@ -40,10 +41,10 @@ require 'Functions.php';
             $row = mysqli_fetch_assoc($result);
             if( password_verify($password, $row['password']))
             {
-                $_SESSION["login"] = true;
+                $_SESSION["login"] = $username;
 ?>
                 <script type="text/javascript">
-                    window.location = "GraphicReport.php";
+                    window.location = "Home.php";
                 </script>
 <?php
             }
