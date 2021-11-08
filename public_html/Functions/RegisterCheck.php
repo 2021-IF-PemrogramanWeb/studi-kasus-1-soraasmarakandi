@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+require 'ConnectDB.php';
 
 function register($data)
 {

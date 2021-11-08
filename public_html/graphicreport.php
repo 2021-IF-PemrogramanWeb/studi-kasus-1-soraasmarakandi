@@ -1,5 +1,5 @@
 <?php
-require "login_session.php";
+require "Functions/LoginSession.php";
 	// Create connection
 	$conn = mysqli_connect("localhost","id17882668_user_mahasiswa","6]q{|nBDkHPgimkV","id17882668_db_mahasiswa");
 	$result = mysqli_query($conn,"SELECT * FROM tb_mahasiswa");
@@ -8,16 +8,6 @@ require "login_session.php";
 	{
 		array_push($dataPoints,array("y"=>$mahasiswas["height"], "label"=>$mahasiswas["name"]));
 	}
-	// $dataPoints = array( 
-	// 	array("y" => 3373.64, "label" => "Germany" ),
-	// 	array("y" => 2435.94, "label" => "France" ),
-	// 	array("y" => 1842.55, "label" => "China" ),
-	// 	array("y" => 1828.55, "label" => "Russia" ),
-	// 	array("y" => 1039.99, "label" => "Switzerland" ),
-	// 	array("y" => 765.215, "label" => "Japan" ),
-	// 	array("y" => 612.453, "label" => "Netherlands" )
-	// );
-	
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -49,7 +39,7 @@ require "login_session.php";
 		
 		}
 		</script>
-		<?php require "navbar.php"; ?>
+		<?php require "Page/Navbar.php"; ?>
 	</head>
 	<body>
 		<div id="chartContainer" style="height: 370px; width: 100%;"></div>

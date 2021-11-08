@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+require 'ConnectDB.php';
 
 global $db_account;
 
@@ -13,7 +13,7 @@ if(mysqli_num_rows($result) > 0)
     $row = mysqli_fetch_assoc($result);
     if( password_verify($password, $row['password']))
     {
-        header("Location: home.php",true,301);
+        header("Location: index.php",true,301);
         $_SESSION['login']=$username;
         exit;
     }

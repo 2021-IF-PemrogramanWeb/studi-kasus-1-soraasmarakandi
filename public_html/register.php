@@ -6,8 +6,14 @@
 </script>
 
 <?php
-require 'navbar.php';
-require 'register_check.php';
+session_start();
+if ( isset($_SESSION['login']) )
+{
+    $loginned = true;
+    header('location: home.php',true,301);    
+}
+require 'Page/Navbar.php';
+require 'Functions/RegisterCheck.php';
 
     if(isset($_POST['register']))
     {
@@ -45,31 +51,31 @@ require 'register_check.php';
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </head>
     <body>
-            <div class="card card-body mx-auto" style="width: 50rem;margin-top: 5rem;">
-                <h1>Register</h1>
-                <form action="" method="POST">
-                    <div class="mb-3">
-                        <label for="emailInput" class="form-label">Email address</label>
-                        <input name="email" type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="usernameInput" class="form-label">Username</label>
-                        <input name="username" type="username" class="form-control" id="usernameInput" aria-describedby="usernameHelp">
-                        <div id="usernameHelp" class="form-text">Put your username here.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="passwordInput" class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelp">
-                        <div id="passwordHelp" class="form-text">Create an unique and memoriable password!</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="passwordConfirmInput" class="form-label">Password Confirmation</label>
-                        <input name="passwordConfirm" type="password" class="form-control" id="passwordConfirmInput" aria-describedby="passwordConfirmHelp">
-                        <div id="passwordConfirmHelp" class="form-text">We suggest typing rather than copying to make sure the password is your best choice.</div>
-                    </div>
-                    <button name="register" type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+        <div class="card card-body mx-auto" style="width: 50rem;margin-top: 5rem;">
+            <h1>Register</h1>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email address</label>
+                    <input name="email" type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label">Username</label>
+                    <input name="username" type="username" class="form-control" id="usernameInput" aria-describedby="usernameHelp">
+                    <div id="usernameHelp" class="form-text">Put your username here.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="passwordInput" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelp">
+                    <div id="passwordHelp" class="form-text">Create an unique and memoriable password!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="passwordConfirmInput" class="form-label">Password Confirmation</label>
+                    <input name="passwordConfirm" type="password" class="form-control" id="passwordConfirmInput" aria-describedby="passwordConfirmHelp">
+                    <div id="passwordConfirmHelp" class="form-text">We suggest typing rather than copying to make sure the password is your best choice.</div>
+                </div>
+                <button name="register" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </body>
 </html>

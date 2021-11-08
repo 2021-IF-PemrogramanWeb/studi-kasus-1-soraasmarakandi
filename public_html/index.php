@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'navbar.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +10,12 @@ require 'navbar.php';
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </head>
     <body>
+        <?php require 'Page/Navbar.php'; ?>
         <h1 class="sdh_title">Welcome to SevenDotsofHope!</h1>
+<?php
+    if (!isset($_SESSION['login']))
+    {
+?>
         <div class="d-flex justify-content-center">
             <div class="px-4">
                 <a href="login.php">Login</a>
@@ -20,5 +24,9 @@ require 'navbar.php';
                 <a href="register.php">Register</a>
             </div>
         </div>
+<?php
+    }
+?>
+    </div>
     </body>
 </html>
