@@ -9,7 +9,7 @@
 session_start();
 if ( isset($_SESSION['login']) )
 {
-    header('location: home.php',true,301);    
+    header('location: index.php',true,301);    
 }
 
 if (isset($_POST['login']))
