@@ -1,7 +1,6 @@
 <?php
     require "Functions/LoginSession.php";
 	require "Functions/ConnectDB.php";
-	require "/Assets/Images";
 
 	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa");
 ?>
