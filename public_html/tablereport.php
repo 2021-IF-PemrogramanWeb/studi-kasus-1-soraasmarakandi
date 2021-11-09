@@ -31,7 +31,7 @@
 	</head>
 	<body>
 
-		<table>
+		<table class="table table-bordered">
 			<tr>
 				<th>Photo</th>
 				<th>NRP</th>
@@ -40,7 +40,7 @@
 			</tr>
 			<?php while ( $mahasiswas = mysqli_fetch_assoc($result) ) {?>
 				<tr>
-					<td><img src="<?= $mahasiswas['profile_picture'] ?>" width="1" height="1" alt="<?= $mahasiswas['nama']?>"></td>
+					<td><img src="<?= $mahasiswas['profile_picture'] ?>" width="128" height="128" alt="<?= $mahasiswas['nama']?>"></td>
 					<td><?= $mahasiswas["nrp"]?></td>
 					<td><?= $mahasiswas["name"]?></td>
 					<td><?= $mahasiswas["website"]?></td>
