@@ -40,7 +40,7 @@
 			</tr>
 			<?php while ( $mahasiswas = mysqli_fetch_assoc($result) ) {?>
 				<tr>
-					<td><img src="Assets/adam.jpg"></td>
+					<td><img src="Functions/adam.jpg"></td>
 					<td><?= $mahasiswas["nrp"]?></td>
 					<td><?= $mahasiswas["name"]?></td>
 					<td><?= $mahasiswas["website"]?></td>
