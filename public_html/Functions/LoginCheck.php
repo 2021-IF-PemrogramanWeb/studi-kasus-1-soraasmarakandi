@@ -1,12 +1,10 @@
 <?php
 require 'ConnectDB.php';
 
-global $db;
-
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$result = mysqli_query($db_account,"SELECT * FROM tb_account WHERE username='$username'");
+$result = mysqli_query($db,"SELECT * FROM tb_account WHERE username='$username'");
 
 if(mysqli_num_rows($result) > 0)
 {
