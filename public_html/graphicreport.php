@@ -1,13 +1,41 @@
 <?php
 require "Functions/LoginSession.php";
-	// Create connection
-	$conn = mysqli_connect("localhost","id17882668_user_mahasiswa","6]q{|nBDkHPgimkV","id17882668_db_mahasiswa");
-	$result = mysqli_query($conn,"SELECT * FROM tb_mahasiswa");
-	$dataPoints = array();
-	while ($mahasiswas = mysqli_fetch_assoc($result))
-	{
-		array_push($dataPoints,array("y"=>$mahasiswas["height"], "label"=>$mahasiswas["name"]));
-	}
+require "Functions/ConnectDB.php";
+
+	$datas_count = 0;
+
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '000webhostapp.com' ");
+	$website_000webhostapp_com = mysqli_num_rows($result);
+	$datas_count += mysqli_num_rows($result);
+
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '.gcoder.me' ");
+	$website_gcoder_me = mysqli_num_rows($result);
+	$datas_count += mysqli_num_rows($result);
+
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '.my.id' ");
+	$website_my_id = mysqli_num_rows($result);
+	$datas_count += mysqli_num_rows($result);
+	
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '.xyz' ");
+	$website_xyz = mysqli_num_rows($result);
+	$datas_count += mysqli_num_rows($result);
+
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website IS NOT NULL");
+	$website_other = mysqli_num_rows($result) - $datas_count;
+	$datas_count += mysqli_num_rows($result);
+
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website IS NULL");
+	$website_null = mysqli_num_rows($result);
+
+	array_push($dataPoints,array("y"=>$mahasiswas["height"], "label"=>$mahasiswas["name"]));
+	$dataPoints = array(
+		array("y" => $website_000webhostapp_com, "label" => "000webhostapp.com"),
+		array("y" => $website_gcoder_me, "label" => "gcoder.me"),
+		array("y" => $website_my_id, "label" => "my.id"),
+		array("y" => $website_xyz, "label" => ".xyz"),
+		array("y" => $website_other, "label" => "other"),
+		array("y" => $website_null, "label" => "NULL"),
+	);
 ?>
 <!DOCTYPE HTML>
 <html>

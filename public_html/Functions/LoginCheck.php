@@ -1,7 +1,7 @@
 <?php
 require 'ConnectDB.php';
 
-global $db_account;
+global $db;
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -20,5 +20,4 @@ if(mysqli_num_rows($result) > 0)
 }
 if (isset($_POST['login']))
     $wrong_password = true;
-
 ?>

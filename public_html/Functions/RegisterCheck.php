@@ -3,15 +3,15 @@ require 'ConnectDB.php';
 
 function register($data)
 {
-    global $db_account;
+    global $db;
 
     $email = strtolower(stripslashes($data["email"]));
     $username = strtolower(stripslashes($data["username"]));
-    $password = mysqli_real_escape_string($db_account,$data["password"]);
+    $password = mysqli_real_escape_string($db,$data["password"]);
     $hash = md5( rand(0,1000) );
 
-    mysqli_query($db_account,"SELECT * FROM tb_account WHERE email='$email'");
-    $checkempty = mysqli_affected_rows($db_account);
+    mysqli_query($db,"SELECT * FROM tb_account WHERE email='$email'");
+    $checkempty = mysqli_affected_rows($db);
     if ($checkempty > 0)
     {
 ?>
@@ -23,8 +23,8 @@ function register($data)
         exit;
     }
     
-    mysqli_query($db_account,"SELECT * FROM tb_account WHERE username='$username'");
-    $checkempty = mysqli_affected_rows($db_account);
+    mysqli_query($db,"SELECT * FROM tb_account WHERE username='$username'");
+    $checkempty = mysqli_affected_rows($db);
     if ($checkempty > 0)
     {
         echo "<script>alert('Username already used. Please use another username.')</script>";
@@ -37,8 +37,8 @@ function register($data)
     }
     
     $password = password_hash($password, PASSWORD_DEFAULT);
-    mysqli_query($db_account,"INSERT INTO tb_account VALUES('$email','$username','$password','$hash',0,SYSDATE())");
+    mysqli_query($db,"INSERT INTO tb_account VALUES('$email','$username','$password','$hash',0,SYSDATE())");
 
-    return mysqli_affected_rows($db_account);
+    return mysqli_affected_rows($db);
 }
 ?>
