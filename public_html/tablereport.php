@@ -33,16 +33,17 @@
 
 		<table>
 			<tr>
-				<th>Company</th>
-				<th>Contact</th>
-				<th>Height</th>
+				<th>Photo</th>
+				<th>NRP</th>
+				<th>Name</th>
+				<th>Website</th>
 			</tr>
 			<?php while ( $mahasiswas = mysqli_fetch_assoc($result) ) {?>
 				<tr>
-					<td><?= $tb_mahasiswa["profile_picture"]?></td>
-					<td><?= $tb_mahasiswa["nrp"]?></td>
-					<td><?= $tb_mahasiswa["name"]?></td>
-					<td><?= $tb_mahasiswa["website"]?></td>
+					<td><?= $mahasiswas["profile_picture"]?></td>
+					<td><?= $mahasiswas["nrp"]?></td>
+					<td><?= $mahasiswas["name"]?></td>
+					<td><?= $mahasiswas["website"]?></td>
 				</tr>
 			<?php }?>
 		</table>
