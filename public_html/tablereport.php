@@ -2,7 +2,7 @@
     require "Functions/LoginSession.php";
 	require "Functions/ConnectDB.php";
 
-	$result = $mysqli_query($db,"SELECT * FROM tb_mahasiswa");
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa");
 ?>
 
 <!DOCTYPE HTML>
