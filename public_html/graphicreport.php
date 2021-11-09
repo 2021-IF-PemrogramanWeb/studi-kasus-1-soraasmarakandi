@@ -4,19 +4,19 @@ require "Functions/ConnectDB.php";
 
 	$datas_count = 0;
 
-	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '000webhostapp.com' ");
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '%000webhostapp.com%' ");
 	$website_000webhostapp_com = mysqli_num_rows($result);
 	$datas_count += mysqli_num_rows($result);
 
-	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '.gcoder.me' ");
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '%.gcoder.me%' ");
 	$website_gcoder_me = mysqli_num_rows($result);
 	$datas_count += mysqli_num_rows($result);
 
-	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '.my.id' ");
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '%.my.id%' ");
 	$website_my_id = mysqli_num_rows($result);
 	$datas_count += mysqli_num_rows($result);
 	
-	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '.xyz' ");
+	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website LIKE '%.xyz%' ");
 	$website_xyz = mysqli_num_rows($result);
 	$datas_count += mysqli_num_rows($result);
 
