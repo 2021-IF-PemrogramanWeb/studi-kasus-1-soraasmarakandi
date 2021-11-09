@@ -31,7 +31,7 @@
 	</head>
 	<body>
 
-		<table class="table table-bordered">
+		<table class="table table-bordered border-primary">
 			<tr>
 				<th>Photo</th>
 				<th>NRP</th>
