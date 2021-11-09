@@ -1,8 +1,6 @@
 <?php
     require "Functions/LoginSession.php";
-	// Create connection
-	$conn = mysqli_connect("localhost","id17882668_user_mahasiswa","6]q{|nBDkHPgimkV","id17882668_db_mahasiswa");
-	$result = mysqli_query($conn,"SELECT * FROM tb_mahasiswa");
+	require "Functions/ConnectDB.php";
 ?>
 
 <!DOCTYPE HTML>
@@ -39,9 +37,10 @@
 			</tr>
 			<?php while ( $mahasiswas = mysqli_fetch_assoc($result) ) {?>
 				<tr>
-					<td><?= $mahasiswas["name"]?></td>
-					<td><?= $mahasiswas["contact"]?></td>
-					<td><?= $mahasiswas["height"]?></td>
+					<td><?= $tb_mahasiswa["profile_picture"]?></td>
+					<td><?= $tb_mahasiswa["nrp"]?></td>
+					<td><?= $tb_mahasiswa["name"]?></td>
+					<td><?= $tb_mahasiswa["website"]?></td>
 				</tr>
 			<?php }?>
 		</table>
