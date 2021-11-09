@@ -6,13 +6,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          <a class="nav-link <?php if ($_SERVER['REQUEST_URI']=='/index.php') echo 'active'?>" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="webprogramminge.php">About</a>
+          <a class="nav-link <?php if ($_SERVER['REQUEST_URI']=='/webprogramminge.php') echo 'active'?>" href="webprogramminge.php">About</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link <?php if ($_SERVER['REQUEST_URI']=='/graphicreport.php' || $_SERVER['REQUEST_URI']=='/tablereport.php') echo 'active'?> dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Report
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -23,12 +23,20 @@
           </ul>
         </li>
       </ul>
-      <?php if( !isset ($_SESSION['login']) ): ?>
-        <a href="login.php" class="btn btn-outline-success" type="submit">Login</a>
-      <?php else: ?>
-        <p class="my-auto">Hello, <?=$_SESSION['login']?>!</p>
-        <a href="logout.php" class="btn btn-outline-success" type="submit">Logout</a>
-      <?php endif ?>
+      <ul class="navbar-nav">
+        <?php if( !isset ($_SESSION['login']) ): ?>
+          <a href="login.php" class="btn btn-outline-success" type="submit">Login</a>
+        <?php else: ?>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: blue;">
+              Hello, <?= $_SESSION['login'] ?>!
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+            </ul>
+          </li>
+        <?php endif ?>
+      </ul>
     </div>
   </div>
 </nav>

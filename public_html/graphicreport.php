@@ -27,7 +27,6 @@ require "Functions/ConnectDB.php";
 	$result = mysqli_query($db,"SELECT * FROM tb_mahasiswa WHERE website IS NULL");
 	$website_null = mysqli_num_rows($result);
 
-	array_push($dataPoints,array("y"=>$mahasiswas["height"], "label"=>$mahasiswas["name"]));
 	$dataPoints = array(
 		array("y" => $website_000webhostapp_com, "label" => "000webhostapp.com"),
 		array("y" => $website_gcoder_me, "label" => "gcoder.me"),

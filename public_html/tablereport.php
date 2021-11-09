@@ -30,23 +30,29 @@
 		<?php require 'Page/Navbar.php'; ?>
 	</head>
 	<body>
-
-		<table class="table table-bordered border-primary">
-			<tr>
-				<th>Photo</th>
-				<th>NRP</th>
-				<th>Name</th>
-				<th>Website</th>
-			</tr>
-			<?php while ( $mahasiswas = mysqli_fetch_assoc($result) ) {?>
-				<tr>
-					<td><img src="<?= $mahasiswas['profile_picture'] ?>" width="128" height="128" alt="<?= $mahasiswas['nama']?>"></td>
-					<td><?= $mahasiswas["nrp"]?></td>
-					<td><?= $mahasiswas["name"]?></td>
-					<td><?= $mahasiswas["website"]?></td>
-				</tr>
-			<?php }?>
-		</table>
 		
+		<div class="container">
+			<table class="table table-dark">
+				<thead>
+					<tr>
+						<th>Photo</th>
+						<th>NRP</th>
+						<th>Name</th>
+						<th>Website</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php while ( $mahasiswas = mysqli_fetch_assoc($result) ) {?>
+						<tr>
+							<td><img src="<?= $mahasiswas['profile_picture'] ?>" width="128" height="128" alt="<?= $mahasiswas['name']?>"></td>
+							<td class="text-center align-middle"><?= $mahasiswas["nrp"]?></td>
+							<td class="text-center align-middle"><?= $mahasiswas["name"]?></td>
+							<td class="text-center align-middle"><a href="<?= $mahasiswas['website']?>"><?= $mahasiswas["website"]?></a></td>
+						</tr>
+					<?php }?>
+				</tbody>
+			</table>
+		</div>
+
 	</body>
 </html>
