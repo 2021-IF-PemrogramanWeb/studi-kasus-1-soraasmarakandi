@@ -48,7 +48,10 @@ require 'Functions/LoginSession.php';
                     </div>
                 </div>
             </div>
-            <h2 class="text-center">Lovely Friends :</h2>
+            <h2 class="text-center mt-3">Lovely Friends :</h2>
+            <div class="d-flex justify-content-center">
+                <a href="tablereport.php" class="btn btn-primary mt-3">Click here</a>
+            </div>
         </div>
     </body>
 </html>
