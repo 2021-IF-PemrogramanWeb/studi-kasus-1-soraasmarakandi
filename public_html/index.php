@@ -11,7 +11,7 @@ session_start();
     </head>
     <body>
         <?php require 'Page/Navbar.php'; ?>
-        <h1 class="sdh_title">Welcome to SevenDotsofHope!</h1>
+        <h1 class="sdh_title">Welcome to Richard Asmarakandi's Site!</h1>
 <?php
     if (!isset($_SESSION['login']))
     {
