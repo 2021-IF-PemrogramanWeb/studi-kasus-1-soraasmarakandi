@@ -10,7 +10,7 @@ session_start();
 if ( isset($_SESSION['login']) )
 {
     $loginned = true;
-    header('location: home.php',true,301);    
+    header('location: index.php',true,301);    
 }
 require 'Page/Navbar.php';
 require 'Functions/RegisterCheck.php';
