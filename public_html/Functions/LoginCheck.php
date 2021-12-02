@@ -15,7 +15,11 @@ if(mysqli_num_rows($result) > 0)
         $_SESSION['login']=$username;
         exit;
     }
+    else
+        $wrong_password = false;
 }
-if (isset($_POST['login']))
-    $wrong_password = true;
+else
+{
+    $no_account = true;
+}
 ?>

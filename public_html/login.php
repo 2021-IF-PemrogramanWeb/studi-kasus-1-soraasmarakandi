@@ -36,6 +36,16 @@ if (isset($_POST['login']))
                     unset($wrong_password);
                 } 
             ?>
+             <?php if (isset($no_account)) 
+              { 
+            ?>
+                    <div class="alert alert-danger" role="alert">
+                    Account doesn't exist.
+                    </div>
+            <?php 
+                    unset($wrong_password);
+                } 
+            ?>
                 <h1>Login</h1>
                 <form action="" method="POST">
                     <div class="mb-3">
