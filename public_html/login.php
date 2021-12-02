@@ -50,13 +50,13 @@ if (isset($_POST['login']))
                 <form action="" method="POST">
                     <div class="mb-3">
                         <label for="usernameInput" class="form-label">Username</label>
-                        <input type="username" name="username" class="form-control" id="usernameInput" aria-describedby="emailHelp">
+                        <input type="username" name="username" class="form-control" id="usernameInput" aria-describedby="emailHelp" required>
                         <div id="usernameHelp" class="form-text">Enter your username.</div>
                     </div>
 
                     <div class="mb-3">
                         <label for="passwordInput" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="passwordInput">
+                        <input type="password" name="password" class="form-control" id="passwordInput" required>
                     </div>
                     <button type="submit" name="login" class="btn btn-primary">Submit</button>
                 </form>
