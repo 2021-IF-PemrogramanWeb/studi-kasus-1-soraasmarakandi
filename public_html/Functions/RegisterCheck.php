@@ -37,7 +37,7 @@ function register($data)
     }
     
     $password = password_hash($password, PASSWORD_DEFAULT);
-    mysqli_query($db,"INSERT INTO tb_account VALUES('$email','$username','$password','$hash',0,SYSDATE())");
+    mysqli_query($db,"INSERT INTO tb_account VALUES('$email','$username','$password','$hash')");
 
     return mysqli_affected_rows($db);
 }
